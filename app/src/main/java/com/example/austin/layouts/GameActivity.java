@@ -15,41 +15,43 @@ public class GameActivity extends Activity {
     RadioButton rb1, rb2, rb3, rb4;
     String sToast;
     ImageView image;
-    int nCount=0, nScore=0, nAns=1;
+    int nCount=0, nScore=0, nAns=1,nGuess;
+    Boolean bChecked;
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()) {
             case R.id.rb1:
-                if (checked&&nAns==1) {
-                    sToast = "✓";
+                if (checked) {
+                    bChecked=true;
+                    nGuess=1;
                     break;
                 }
-                sToast="✗";
                 break;
             case R.id.rb2:
-                if (checked&&nAns==2) {
-                    sToast = "✓";
+                if (checked) {
+                    bChecked=true;
+                    nGuess=2;
                     break;
                 }
-                sToast="✗";
                 break;
             case R.id.rb3:
-                if (checked&&nAns==3) {
-                    sToast = "✓";
+                if (checked) {
+                    bChecked=true;
+                    nGuess=3;
                     break;
                 }
-                sToast="✗";
                 break;
             case R.id.rb4:
-                if (checked&&nAns==4) {
-                    sToast = "✓";
+                if (checked) {
+                    bChecked=true;
+                    nGuess=4;
                     break;
                 }
-                sToast="✗";
                 break;
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +66,16 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v){
                 nCount++;
-                Toast toCred = Toast.makeText(GameActivity.this, sToast,Toast.LENGTH_SHORT);
+                Toast toCred;
+                if(bChecked=true){
+                    if(nAns==nGuess) {
+                        sToast = "✓";
+                    }
+                    else{
+                        sToast="✗";
+                    }
+                }
+                toCred = Toast.makeText(GameActivity.this, sToast,Toast.LENGTH_SHORT);
                 toCred.show();
                 if(nCount==1){
                     image.setImageResource(R.drawable.i2);
