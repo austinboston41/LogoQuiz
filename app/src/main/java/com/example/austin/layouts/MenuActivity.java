@@ -21,57 +21,13 @@ public class MenuActivity extends Activity {
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()) {
-            case R.id.rbL1:
+            case R.id.rbL1|R.id.rbL2|R.id.rbL3|R.id.rbL4|R.id.rbL5|
+                    R.id.rbL6|R.id.rbL7|R.id.rbL8|R.id.rbL9|R.id.rbL10:
                 if (checked) {
                     break;
                 }
                 break;
-            case R.id.rbL2:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL3:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL4:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL5:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL6:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL7:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL8:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL9:
-                if (checked) {
-                    break;
-                }
-                break;
-            case R.id.rbL10:
-                if (checked) {
-                    break;
-                }
-                break;   
-        }
+    }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
