@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -44,6 +45,11 @@ public class SettingsActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_webpage) {
+            Intent nextScreen=new Intent(getApplicationContext(), WebpageActivity.class);
+            startActivity(nextScreen);
             return true;
         }
 
