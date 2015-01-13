@@ -138,6 +138,11 @@ public class MenuActivity extends Activity {
             startActivity(nextScreen);
             return true;
         }
+        if (id == R.id.action_webpage) {
+            Intent nextScreen=new Intent(getApplicationContext(), WebpageActivity.class);
+            startActivity(nextScreen);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

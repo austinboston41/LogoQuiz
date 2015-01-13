@@ -1,6 +1,7 @@
 package com.example.austin.layouts;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class GameActivity extends Activity {
@@ -56,6 +58,8 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        RelativeLayout rl = (RelativeLayout)findViewById(R.id.RelativeLayout);
+        rl.setBackgroundColor(Color.WHITE);
         rb1 = (RadioButton)findViewById(R.id.rb1);
         rb2 = (RadioButton)findViewById(R.id.rb2);
         rb3 = (RadioButton)findViewById(R.id.rb3);
@@ -77,6 +81,10 @@ public class GameActivity extends Activity {
                 }
                 toCred = Toast.makeText(GameActivity.this, sToast,Toast.LENGTH_SHORT);
                 toCred.show();
+                rb1.setChecked(false);
+                rb2.setChecked(false);
+                rb3.setChecked(false);
+                rb4.setChecked(false);
                 if(nCount==1){
                     image.setImageResource(R.drawable.i2);
                     nAns=2;
