@@ -46,25 +46,21 @@
         <RadioButton android:id="@+id/rb1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="xbox"
             android:textColor="#ff000000"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton android:id="@+id/rb2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="xbox one"
             android:textColor="#ff000000"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton android:id="@+id/rb3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="x bone"
             android:textColor="#ff000000"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton android:id="@+id/rb4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="microsoft games"
             android:textColor="#ff000000"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
