@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class MenuActivity extends Activity {
     Button butPlay;
     MediaPlayer mpMusic;
+    int nScore;
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
@@ -33,6 +35,10 @@ public class MenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Intent mIntent = getIntent();
+        int nScore1 = mIntent.getIntExtra("nScore", 0);
+        TextView tvScore1 = (TextView) findViewById(R.id.tvScore1);
+        tvScore1.setText("Score: " + Integer.toString(nScore1));
         butPlay = (Button) findViewById(R.id.butPlay);
         butPlay.setOnClickListener(new View.OnClickListener(){
 
@@ -48,7 +54,7 @@ public class MenuActivity extends Activity {
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    mpMusic = MediaPlayer.create(MenuActivity.this, R.raw.musicfile);
+                    mpMusic = MediaPlayer.create(MenuActivity.this, R.raw.musicfile2);
                     mpMusic.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
                         @Override
@@ -60,7 +66,8 @@ public class MenuActivity extends Activity {
 
                     });
                     mpMusic.start();
-                    String sToast = "Now Playing: Re-Birthday";
+                    mpMusic.setLooping(true);
+                    String sToast = "Now Playing: Darude Dankstorm";
                     Toast toMusic = Toast.makeText(MenuActivity.this, sToast,Toast.LENGTH_SHORT);
                     toMusic.show();
                 } else {
