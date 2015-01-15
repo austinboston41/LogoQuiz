@@ -99,4 +99,12 @@
         android:layout_alignRight="@+id/radioGroup"
         android:layout_alignEnd="@+id/radioGroup" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvScore1"
+        android:layout_above="@+id/radioGroup"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
