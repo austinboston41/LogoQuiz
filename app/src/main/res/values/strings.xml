@@ -6,4 +6,37 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">MenuActivity</string>
 
+    <string-array name="rb1">
+        <item>xbox</item>
+        <item>activision</item>
+        <item>steampunk</item>
+        <item>encore</item>
+        <item>Rockstar Games</item>
+        <item>Ps3</item>
+    </string-array>
+    <string-array name="rb2">
+        <item>xbox one</item>
+        <item>ubisoft</item>
+        <item>ubuntu</item>
+        <item>eclipse</item>
+        <item>rice</item>
+        <item>Playstation</item>
+    </string-array>
+    <string-array name="rb3">
+        <item>x bone</item>
+        <item>rockstar</item>
+        <item>steam</item>
+        <item>elipse</item>
+        <item>Rockstar Gaming</item>
+        <item>Sony</item>
+    </string-array>
+    <string-array name="rb4">
+        <item>microsoft games</item>
+        <item>swirl</item>
+        <item>gears of war</item>
+        <item>square enix</item>
+        <item>Rockstars</item>
+        <item>Ps</item>
+    </string-array>
+
 </resources>

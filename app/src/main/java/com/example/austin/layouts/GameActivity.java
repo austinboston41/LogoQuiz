@@ -1,6 +1,8 @@
 package com.example.austin.layouts;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,12 +14,14 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class GameActivity extends Activity {
     Button butSubmit;
     RadioButton rb1, rb2, rb3, rb4;
     String sToast;
     ImageView image;
-    int nCount=0, nScore=0, nAns=1,nGuess;
+    int nScore=0, nAns=1,nGuess,i=0;
     Boolean bChecked;
 
     public void onRadioButtonClicked(View view) {
@@ -58,76 +62,72 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        RelativeLayout rl = (RelativeLayout)findViewById(R.id.RelativeLayout);
+        RelativeLayout rl = (RelativeLayout) findViewById(R.id.RelativeLayout);
         rl.setBackgroundColor(Color.WHITE);
-        rb1 = (RadioButton)findViewById(R.id.rb1);
-        rb2 = (RadioButton)findViewById(R.id.rb2);
-        rb3 = (RadioButton)findViewById(R.id.rb3);
-        rb4 = (RadioButton)findViewById(R.id.rb4);
+        rb1 = (RadioButton) findViewById(R.id.rb1);
+        rb2 = (RadioButton) findViewById(R.id.rb2);
+        rb3 = (RadioButton) findViewById(R.id.rb3);
+        rb4 = (RadioButton) findViewById(R.id.rb4);
         image = (ImageView) findViewById(R.id.ivLogo);
-        butSubmit = (Button) findViewById(R.id.button);
-        butSubmit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                nCount++;
-                Toast toCred;
-                if(bChecked=true){
-                    if(nAns==nGuess) {
-                        sToast = "✓";
+        Resources res = getResources();
+        String[] srb1 = res.getStringArray(R.array.rb1);
+        String[] srb2 = res.getStringArray(R.array.rb2);
+        String[] srb3 = res.getStringArray(R.array.rb3);
+        String[] srb4 = res.getStringArray(R.array.rb4);
+        rb1.setText(srb1[i]);
+        rb2.setText(srb2[i]);
+        rb3.setText(srb3[i]);
+        rb4.setText(srb4[i]);
+            butSubmit = (Button) findViewById(R.id.button);
+            butSubmit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    i++;
+                    Toast toCred;
+                    if (bChecked = true) {
+                        if (nAns == nGuess) {
+                            sToast = "✓";
+                        } else {
+                            sToast = "✗";
+                        }
                     }
-                    else{
-                        sToast="✗";
+                    toCred = Toast.makeText(GameActivity.this, sToast, Toast.LENGTH_SHORT);
+                    toCred.show();
+                    Resources res = getResources();
+                    String[] srb1 = res.getStringArray(R.array.rb1);
+                    String[] srb2 = res.getStringArray(R.array.rb2);
+                    String[] srb3 = res.getStringArray(R.array.rb3);
+                    String[] srb4 = res.getStringArray(R.array.rb4);
+                    rb1.setChecked(false);
+                    rb2.setChecked(false);
+                    rb3.setChecked(false);
+                    rb4.setChecked(false);
+                    nAns = i + 1;
+                    rb1.setText(srb1[i]);
+                    rb2.setText(srb2[i]);
+                    rb3.setText(srb3[i]);
+                    rb4.setText(srb4[i]);
+                    if (i == 1) {
+                        image.setImageResource(R.drawable.i2);
                     }
+                    if (i == 2) {
+                        image.setImageResource(R.drawable.i3);
+                    }
+                    if (i == 3) {
+                        image.setImageResource(R.drawable.i4);
+                    }
+                    if (i == 4) {
+                        image.setImageResource(R.drawable.i5);
+                    }
+                    if (i == 5) {
+                        image.setImageResource(R.drawable.i6);
+                    }
+
                 }
-                toCred = Toast.makeText(GameActivity.this, sToast,Toast.LENGTH_SHORT);
-                toCred.show();
-                rb1.setChecked(false);
-                rb2.setChecked(false);
-                rb3.setChecked(false);
-                rb4.setChecked(false);
-                if(nCount==1){
-                    image.setImageResource(R.drawable.i2);
-                    nAns=2;
-                    rb1.setText("activision");
-                    rb2.setText("ubisoft");
-                    rb3.setText("rockstar");
-                    rb4.setText("rockstar");
-                }
-                if(nCount==2){
-                    image.setImageResource(R.drawable.i3);
-                    nAns=3;
-                    rb1.setText("steampunk");
-                    rb2.setText("ubuntu");
-                    rb3.setText("steam");
-                    rb4.setText("gears of war");
-                }
-                if(nCount==3){
-                    image.setImageResource(R.drawable.i4);
-                    nAns=4;
-                    rb1.setText("encore");
-                    rb2.setText("eclipse");
-                    rb3.setText("elipse");
-                    rb4.setText("square enix");
-                }
-                if(nCount==4){
-                    image.setImageResource(R.drawable.i5);
-                    nAns=1;
-                    rb1.setText("Rockstar Games");
-                    rb2.setText("rice");
-                    rb3.setText("Rockstar Gaming");
-                    rb4.setText("Rockstars");
-                }
-                if(nCount==5){
-                    image.setImageResource(R.drawable.i6);
-                    nAns=2;
-                    rb1.setText("Ps3");
-                    rb2.setText("Playstation");
-                    rb3.setText("Sony");
-                    rb4.setText("Ps");
-                }
-            }
-        });
+            });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
